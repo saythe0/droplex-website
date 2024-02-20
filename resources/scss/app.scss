@@ -1,0 +1,109 @@
+@import "bootstrap/bootstrap-utilities";
+@import "bootstrap/modal";
+@import "bootstrap/containers";
+@import "bootstrap/transitions";
+@import "bootstrap/dropdown";
+@import "bootstrap/bootstrap-grid";
+@import "bootstrap/grid";
+
+@import "root";
+@import "reset";
+@import "keyframes";
+@import "font";
+@import "main";
+@import "modals";
+
+@import "components/input";
+@import "components/nav";
+@import "components/header";
+@import "components/footer";
+@import "components/section";
+@import "components/news";
+@import "components/servers-list";
+@import "components/cabinet";
+@import "components/tables";
+@import "components/select";
+
+@import "components/components";
+
+* {
+    font-family: $font-family;
+}
+
+*,
+*:after,
+*:before {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    color: rgba(255, 255, 255, 1);
+    font-family: $font-family;
+    background-color: rgba(24, 24, 24, 1);
+    background-image: url(../images/background.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+::selection {
+    background: $selection-bg;
+    color: $selection-color;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+button,
+a {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    outline: none;
+}
+
+svg,
+img {
+    user-select: none;
+    vertical-align: top;
+    pointer-events: none;
+}
+
+p {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}

@@ -1,0 +1,368 @@
+.input-block {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &:has(> .input-preview),
+    &:has(> .input-group) {
+        .input {
+            padding: 13px 51px 13px 14px;
+        }
+    }
+
+    &:has(> .input-copy) {
+        .input {
+            padding: 13px 54px 13px 14px;
+        }
+    }
+
+    &.input-not-label {
+        .input-copy {
+            top: 5.5px;
+        }
+        .input-preview {
+            top: 7px;
+        }
+        .input-group {
+            top: 6px;
+        }
+    }
+
+    .input-label {
+        order: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #828282;
+    }
+
+    label.input-error {
+        order: 2;
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $error;
+        opacity: 1;
+    }
+
+    .input-group {
+        position: absolute;
+        top: 31px;
+        right: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        z-index: $zindex-input-button;
+
+        .button {
+            padding: 8.5px 8px;
+            font-size: 16px;
+            line-height: normal;
+            border-radius: 9px;
+        }
+    }
+
+    .input-copy {
+        position: absolute;
+        top: 30px;
+        right: 5.5px;
+        padding: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $primary-hover;
+        border-radius: 9px;
+        outline: none;
+        border: none;
+        z-index: $zindex-input-button;
+        transition: 0.3s all;
+
+        &:hover {
+            background: $primary;
+        }
+
+        &:focus {
+            box-shadow: 0px 0px 0px 4px $primary-50 !important;
+        }
+
+        i {
+            font-size: 20px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 1);
+            width: 20px;
+        }
+    }
+
+    .input-preview {
+        position: absolute;
+        top: 31px;
+        right: 7px;
+        padding: 6px 6px 5px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #3f3f3f;
+        border-radius: 9px;
+        outline: none;
+        border: none;
+        z-index: $zindex-input-button;
+        transition: 0.3s all;
+
+        i {
+            font-size: 24px;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 1);
+            width: 24px;
+        }
+    }
+
+    .input {
+        order: 1;
+        transition: 0.3s all;
+        outline: none;
+        width: 100%;
+        padding: 13px 14px;
+        background: #303030;
+        border: 2px solid #3f3f3f;
+        border-radius: 13px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(255, 255, 255, 0.5);
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #303030 inset !important;
+        }
+
+        &:disabled {
+            cursor: not-allowed !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            opacity: 0.5;
+            pointer-events: none !important;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            appearance: none;
+        }
+
+        &[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        &:hover {
+            border-color: $primary;
+        }
+
+        &:not(.not-focus):focus {
+            border-color: $primary;
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 0px 4px $primary-50 !important;
+        }
+
+        &::placeholder {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        &:not(.not-focus)::placeholder:focus {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        &.input-error {
+            animation: inputErrorShake 0.82s
+                cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            border-color: $error;
+            color: $error;
+
+            & ~ .input-label,
+            & ~ .input-preview,
+            & ~ .input-copy,
+            & ~ label.input-error {
+                animation: inputErrorShake 0.82s
+                    cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            }
+        }
+
+        &:invalid {
+            border-color: $error;
+            color: $error;
+        }
+    }
+}
+
+.checkbox-block {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+
+    .checkbox-label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(255, 255, 255, 1);
+
+        a {
+            display: contents;
+        }
+    }
+    .checkbox {
+        width: 18px;
+        height: 18px;
+        background: $primary-20;
+        border-radius: 5px;
+        vertical-align: top;
+        border: none;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+        transition: 0.3s background-color, 0.3s background-image;
+
+        &:checked {
+            width: 18px;
+            height: 18px;
+            background-color: $primary;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 11.5px 8.5px;
+            border-radius: 5px;
+            background-image: url(../images/checkbox-checked.svg);
+        }
+    }
+}
+
+.code-block {
+    position: relative;
+    width: 100%;
+    gap: 8px;
+    display: grid;
+    align-items: center;
+
+    &.code-block_6 {
+        grid-template-columns: 1fr 1fr 1fr 13px 1fr 1fr 1fr;
+    }
+
+    &.code-block_4 {
+        grid-template-columns: 1fr 1fr 13px 1fr 1fr;
+    }
+
+    label.input-error {
+        order: 2;
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: $error;
+        opacity: 1;
+    }
+
+    .input {
+        display: block;
+        text-align: center;
+        transition: 0.3s all;
+        outline: none;
+        width: 100%;
+        padding: 22px 10px;
+        background: #303030;
+        border: 2px solid #3f3f3f;
+        border-radius: 13px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(255, 255, 255, 0.5);
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #303030 inset !important;
+        }
+
+        &:disabled {
+            cursor: not-allowed !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            opacity: 0.5;
+            pointer-events: none !important;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            appearance: none;
+        }
+
+        &[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        &:focus {
+            border-color: $primary;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        &.input-error,
+        &:invalid {
+            animation: inputErrorShake 0.82s
+                cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            border-color: $error;
+
+            & ~ label.input-error {
+                animation: inputErrorShake 0.82s
+                    cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            }
+        }
+    }
+
+    .i-0 {
+        order: 0;
+    }
+    .i-1 {
+        order: 1;
+    }
+    .i-2 {
+        order: 2;
+    }
+    .i-3 {
+        order: 3;
+    }
+    .i-4 {
+        order: 4;
+    }
+    .i-5 {
+        order: 5;
+    }
+    .i-6 {
+        order: 6;
+    }
+}

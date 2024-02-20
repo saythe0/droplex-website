@@ -1,0 +1,13 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "autoprefix": "last 5 versions",
+            "extensionName": ".css",
+            "savePath": "resources/css"
+            // "savePath": "assets/css"
+        }
+    ],
+    "cSpell.words": ["houseofthedragon", "laravel"],
+    "php.version": "8.3"
+}

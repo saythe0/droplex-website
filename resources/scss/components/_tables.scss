@@ -1,0 +1,125 @@
+.table-dotted {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    .table-dotted__item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 11px;
+
+        .table-dotted__name {
+            color: #6b6b6b;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 11px;
+            white-space: nowrap;
+
+            &::after {
+                content: "";
+                height: 2px;
+                opacity: 0;
+                width: 100%;
+                border-top: 2px dotted rgba(78, 78, 78, 1);
+                transition: 0.3s all ease;
+            }
+        }
+
+        .table-dotted__value {
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: normal;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 14px;
+            white-space: nowrap;
+            z-index: 1;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -2px;
+                right: -5px;
+                bottom: -2px;
+                left: -5px;
+                border-radius: 3px;
+                background: #484848;
+                z-index: -1;
+                opacity: 0;
+                transition: 0.3s all ease;
+            }
+
+            &::after {
+                content: "\e903";
+                font-size: 12px;
+                opacity: 0;
+                transition: 0.3s all ease;
+            }
+        }
+
+        &:hover {
+            .table-dotted__name {
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            .table-dotted__value {
+                &::before,
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.table-normal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .table-normal__grid {
+        display: grid;
+        grid-template-columns: 0.75fr 1fr 0.9fr 0.9fr;
+        gap: 50px;
+    }
+
+    .table-normal__head {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .table-normal__body {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .table-normal__text {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 7px;
+    }
+}

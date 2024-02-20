@@ -1,0 +1,306 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.button-back {
+    border-radius: 8px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    padding: 9.5px 5.5px 8.5px 6.5px;
+    transition: 0.3s all;
+    font-size: 12px;
+    background: $primary-15;
+    color: $primary;
+
+    &:hover {
+        background: $primary;
+        color: rgba(255, 255, 255, 1);
+    }
+
+    &:active {
+        background: $primary-active;
+        color: rgba(255, 255, 255, 1);
+        opacity: 0.85;
+    }
+
+    &:focus {
+        box-shadow: 0px 0px 0px 4px $primary-50 !important;
+        opacity: 1;
+    }
+}
+
+.button {
+    border-radius: 13px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    padding: 14px 30px 14px 30px;
+    transition: 0.3s all;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    backdrop-filter: blur(15px);
+
+    &.button_not-blur {
+        backdrop-filter: none;
+    }
+
+    &:focus {
+        box-shadow: 0px 0px 0px 4px $primary-50 !important;
+        opacity: 1;
+    }
+
+    &.p-triangle {
+        padding: 14px;
+    }
+
+    &.mini {
+        padding: 10px 29px 10px 29px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    &.very-mini {
+        padding: 6px 20px 6px 20px;
+        font-size: 16px;
+        line-height: 19px;
+        border-radius: 7px;
+    }
+
+    &.px-big {
+        padding-right: 39px;
+        padding-left: 39px;
+    }
+
+    &.px-very-big {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+
+    &.px-x2-big {
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+
+    &.px-0 {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    &.button__primary {
+        background: $primary;
+        color: rgba(255, 255, 255, 1);
+
+        &:hover {
+            background: $primary-hover;
+        }
+        &:active {
+            background: $primary-active;
+        }
+    }
+
+    &.button__dark {
+        background: $primary-15;
+        color: $primary;
+
+        &:hover {
+            background: $primary;
+            color: rgba(255, 255, 255, 1);
+        }
+        &:active {
+            background: $primary-active;
+            color: rgba(255, 255, 255, 1);
+            opacity: 0.85;
+        }
+    }
+
+    &.button__disabled {
+        cursor: default;
+        background: rgba(63, 63, 63, 1) !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    &.icon__mini {
+        padding: 8px;
+        font-size: 14px;
+        line-height: 14px;
+        border-radius: 9px;
+    }
+}
+
+.group-button {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 11px;
+
+    .group-button__button {
+        background: transparent;
+        border-radius: 13px;
+        font-weight: 600;
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+        line-height: 21px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        transition: 0.3s all;
+        box-shadow: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            z-index: -1;
+            border-radius: 16px;
+            background: $primary-15;
+            transition: transform 0.45s ease-in-out;
+            transform: scale(0);
+        }
+
+        &:hover::after {
+            transform: scale(1.5);
+        }
+
+        &:active,
+        &:focus,
+        &.active {
+            background: $primary;
+
+            &::after {
+                transform: scale(0);
+            }
+        }
+    }
+
+    &.group-button__mini {
+        gap: 5px 10px;
+
+        .group-button__button {
+            padding: 4px 20px;
+        }
+    }
+}
+
+.link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+    background: transparent;
+    outline: none;
+    transition: 0.3s all;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-underline-position: under;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(255, 255, 255, 0.5);
+
+    &:focus {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration-color: rgba(255, 255, 255, 0.85);
+    }
+
+    &:active {
+        opacity: 0.75;
+    }
+
+    &.color-white {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+.disabled {
+    cursor: not-allowed !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    opacity: 0.5;
+    pointer-events: none !important;
+}
+
+.w-fit-content {
+    width: fit-content !important;
+}
+
+.bottom-line {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $primary;
+        transform: scaleX(0);
+        width: 100%;
+        transition: 0.3s transform ease-in-out !important;
+    }
+
+    &:hover::after,
+    &:focus::after {
+        transform: scaleX(1);
+    }
+}
+
+.tooltip.bs-tooltip-auto .tooltip-arrow {
+    transition: none;
+}
+
+.main {
+    width: 100%;
+
+    & > .container {
+        display: flex;
+        flex-direction: column;
+        gap: 127px;
+        padding: 0;
+
+        @include media-breakpoint-down(md) {
+            gap: 73px;
+        }
+    }
+}
